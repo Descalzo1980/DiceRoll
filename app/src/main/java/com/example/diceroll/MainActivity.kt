@@ -3,7 +3,8 @@ package com.example.diceroll
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +13,14 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton : Button = findViewById(R.id.button)
         rollButton.setOnClickListener{
-//            Toast.makeText(this,"Крути кубик", Toast.LENGTH_SHORT).show()
+            rollButton()
         }
+    }
+
+    private fun rollButton(){
+        val dice = Dice(6)
+        val diceRoll = dice.roll()
+        val resultTextView:TextView = findViewById(R.id.textView)
+        resultTextView.text = diceRoll.toString()
     }
 }
